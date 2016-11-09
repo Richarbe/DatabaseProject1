@@ -10,7 +10,7 @@ insert into organization(org_name, start_date, end_date, location_id)
             ("United States Army", "1775-06-14", null, null),
             ("United Launch Alliance", "2006-12-01", null, null);
             
-insert into launchpad(pad_name, location_id, organization_id)
+insert into launch_pad(pad_name, location_id, organization_id)
 	values	("CCAFS SLC-40", 1, 1),
 			("CCAFS SLC-41", 1, 1);
 
@@ -26,7 +26,7 @@ insert into vehicle(veh_name, vehicle_model_id, organization_id)
 			("F9-002", 1, 3),
             ("AV-021", 4, 6);
 
-insert into launch_attempt(launch_time, success_status, launchpad_id, vehicle_id)
+insert into launch_attempt(launch_time, success_status, launch_pad_id, vehicle_id)
 	values	('2010-03-09 00:00:00', 'scrub', 1, 1),
 			('2010-06-04 00:00:00', 'scrub', 1, 1),
             ('2010-06-04 18:45:00', 'success', 1, 1),
@@ -49,7 +49,7 @@ insert into payload(pay_name, destination, success_status, vehicle_id, organizat
 /*    
 select * from location;
 select * from organization;
-select * from launchpad;
+select * from launch_pad;
 select * from vehicle_model;
 select * from launch_attempt;
 select * from vehicle;

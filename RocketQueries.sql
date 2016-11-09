@@ -43,7 +43,7 @@ select * from launch_attempt;
 create or replace view LaunchAttemptView as
 select veh_name, mod_name, pad_name, launch_time, success_status
 from launch_attempt la
-left join launchpad lp on lp.launchpad_id = la.launchpad_id
+left join launch_pad lp on lp.launch_pad_id = la.launch_pad_id
 left join vehicle v on v.vehicle_id = la.vehicle_id
 left join vehicle_model vm on vm.vehicle_model_id = v.vehicle_model_id
 order by launch_time; 
@@ -76,7 +76,7 @@ create procedure get_organization_launches(_organization_id int)
 begin
 select veh_name, mod_name, pad_name, launch_time, success_status
 from launch_attempt la
-left join launchpad lp on lp.launchpad_id = la.launchpad_id
+left join launch_pad lp on lp.launch_pad_id = la.launch_pad_id
 left join vehicle v on v.vehicle_id = la.vehicle_id
 left join vehicle_model vm on vm.vehicle_model_id = v.vehicle_model_id
 where v.organization_id = _organization_id;
