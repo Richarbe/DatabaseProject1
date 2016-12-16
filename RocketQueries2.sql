@@ -16,6 +16,10 @@ left join location l on l.location_id = lp.location_id;
 
 select * from launch_pad_full;
 
-select * from organization;
+create or replace view vehicle_full as
+select vehicle_id, veh_name, v.vehicle_model_id, mod_name, v.organization_id, org_name
+from vehicle v
+left join vehicle_model vm on vm.vehicle_model_id = v.vehicle_model_id
+left join organization o on o.organization_id = v.organization_id;
 
-INSERT INTO organization (org_name, start_date, end_date, location_id) VALUES ('asdflaskdf',0,0,NULL)
+select * from vehicle_full;
